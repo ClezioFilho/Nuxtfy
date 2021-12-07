@@ -7,6 +7,7 @@ export const state = () => ({
     },
     { text: "Sobrenome", value: "lastname" },
     { text: "CEP", value: "zip_code" },
+    {text: 'Actions', value: 'actions', sortable: false},
   ],
   
   users: []

@@ -11,6 +11,7 @@ export const state = () => ({
     { text: "Carbs (g)", value: "carbs" },
     { text: "Protein (g)", value: "protein" },
     { text: "Iron (%)", value: "iron" },
+    {text: 'Actions', value: 'actions', sortable: false},
   ],
   
   customers: [

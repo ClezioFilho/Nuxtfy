@@ -11,6 +11,7 @@ export const state = () => ({
     {text: "Preço", value: "price"},
     {text: "Descrição", value: "description"},
     {text: "Avaliação", value: "rating"},
+    {text: 'Actions', value: 'actions', sortable: false},
   ],
   
   products: [],
