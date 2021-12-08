@@ -10,9 +10,8 @@
         <v-card
           :elevation="hover ? 24 : 5"
           class="pa-6 overflow-y-auto"
-          :class="{'grey darken-3': hover}"
           height="350"
-        >  
+        >
           <v-card-title class="display-1">
             Title
           </v-card-title>
@@ -52,7 +51,6 @@
         <v-card
           :elevation="hover ? 24 : 5"
           class="pa-6 overflow-y-auto"
-          :class="{'grey darken-3': hover}"
           height="350"
         >  
           <v-card-title class="display-1">

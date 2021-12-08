@@ -1,29 +1,27 @@
 <template>
-  <v-card>
-    <v-tabs
-      v-model="tab"
-      color="grey lighten-1"
-      centered
-    >
-      <v-tab
-        v-for="item in items"
-        :key="item.tab"
+  <v-hover v-slot="{ hover }">
+    <v-card :elevation="hover ? 24 : 5">
+      <v-tabs
+        v-model="tab"
+        color="grey lighten-1"
+        centered
       >
-        {{ item.tab }}
-      </v-tab>
-    </v-tabs>
+        <v-tab
+          v-for="item in items"
+          :key="item.tab"
+        >
+          {{ item.tab }}
+        </v-tab>
+      </v-tabs>
 
-    <v-tabs-items v-model="tab">
-      <v-tab-item
-        v-for="item in items"
-        :key="item.tab"
-      >
-        <v-hover v-slot="{ hover }">
+      <v-tabs-items v-model="tab">
+        <v-tab-item
+          v-for="item in items"
+          :key="item.tab"
+        >
           <v-card
-            :elevation="hover ? 24 : 5"
             class="pa-6 overflow-y-auto"
             height="300"
-            :class="{'grey darken-3': hover}"
           >  
             <v-card-title class="display-1">
               Title
@@ -39,10 +37,10 @@
               </h2>
             </v-card-text>
           </v-card>
-        </v-hover>
-      </v-tab-item>
-    </v-tabs-items>
-  </v-card>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-card>
+  </v-hover>
 </template>
 
 <script>

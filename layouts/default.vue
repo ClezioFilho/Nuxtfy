@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app>
     <!-- Sidebar -->
     <v-navigation-drawer
       v-model="drawer"
@@ -45,14 +45,13 @@
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
-    
+
     <!-- Navbar -->
-    <v-app-bar      
+    <v-app-bar
       src="https://picsum.photos/1920/1080?random"
       prominent
       shrink-on-scroll
       fade-img-on-scroll
-      color="grey darken-3"
       app
     >
       <template v-slot:img="{ props }">
@@ -62,68 +61,47 @@
         />
       </template>
 
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer" />
 
       <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
+        <v-icon color="white">mdi-minus</v-icon>
       </v-btn>
 
       <v-toolbar-title>
-        <NuxtLink class="white--text text-decoration-none" to="/"> {{ title }}</NuxtLink>
+        <nuxt-link class="white--text text-decoration-none" to="/">
+          {{ title }}</nuxt-link
+        >
       </v-toolbar-title>
       <v-spacer></v-spacer>
 
-      <v-menu
-        rounded
-        transition="scroll-y-reverse-transition"
-        offset-y
-      >
+      <v-menu rounded transition="scroll-y-reverse-transition" offset-y>
         <template v-slot:activator="{ on }">
-          <v-btn
-            icon
-            x-large
-            v-on="on"
-            class="mx-4"
-          >
-            <v-avatar
-              color="grey darken-1"
-              size="48"
-            >
+          <v-btn icon x-large v-on="on" class="mx-4">
+            <v-avatar color="grey darken-1" size="48">
               <!-- JD -->
-              <img
-                src="https://picsum.photos/1920/1080?random"
-                alt="User"
-              >
+              <img src="https://picsum.photos/1920/1080?random" alt="User" />
             </v-avatar>
           </v-btn>
         </template>
-        
+
         <v-card>
-          <v-list color="grey darken-3" nav>
+          <v-list nav>
             <v-list-item-content>
               <div class="text-center">
                 <h3>John Doe</h3>
-                <p class="text-caption mt-1">
-                  john.doe@doe.com
-                </p>
-                <v-divider class="my-3"></v-divider>
+                <p class="text-caption mt-1">john.doe@doe.com</p>
+                <v-divider class="my-3" />
 
-                <v-btn
-                  depressed
-                  rounded
-                  text
-                >
-                  Editar
-                </v-btn>
-                <v-divider class="my-3"></v-divider>
+                <v-switch
+                  v-model="$vuetify.theme.dark"
+                  :label="$vuetify.theme.dark ? 'Dark' : 'Light'"
+                />
+                <v-divider class="mb-3" />
 
-                <v-btn
-                  depressed
-                  rounded
-                  text
-                >
-                  Sair
-                </v-btn>
+                <v-btn depressed rounded text> Editar </v-btn>
+                <v-divider class="my-3" />
+
+                <v-btn depressed rounded text> Sair </v-btn>
               </div>
             </v-list-item-content>
           </v-list>
@@ -136,12 +114,9 @@
         <Nuxt />
       </v-container>
     </v-main>
-    
+
     <!-- Footer -->
-    <v-footer
-      :absolute="!fixed"
-      app
-    >
+    <v-footer :absolute="!fixed" app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -149,30 +124,27 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      title: 'Nuxtfy',
+      title: "Nuxtfy",
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'mdi-desktop-mac',
-          title: 'Sistema',
-          items: [
-            { title: 'Equipes', to: '/teams', },
-            { title: 'Usuários', to: '/users', },
-          ],
+          icon: "mdi-desktop-mac",
+          title: "Sistema",
+          items: [{ title: "Usuários", to: "/users" }],
         },
         {
-          icon: 'mdi-shopping',
-          title: 'Comercial',
+          icon: "mdi-shopping",
+          title: "Comercial",
           items: [
-            { title: 'Clientes', to: '/customers', },
-            { title: 'Produtos', to: '/products', },
+            { title: "Clientes", to: "/customers" },
+            { title: "Produtos", to: "/products" },
           ],
         },
       ],
-    }
-  }
-}
+    };
+  },
+};
 </script>
