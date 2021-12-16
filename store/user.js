@@ -6,20 +6,24 @@ export const state = () => ({
       value: "firstname",
     },
     { text: "Sobrenome", value: "lastname" },
-    { text: "CEP", value: "zip_code" },
-    {text: 'Actions', value: 'actions', sortable: false},
+    { text: "Idade", value: "age" },
+    { text: "Telefone", value: "phone" },
+    {text: 'Ações', value: 'actions', sortable: false},
   ],
   
-  users: []
+  users: [],
+  user : {}
 })
 
 export const getters = {
   headers(state) {
     return state.headers
   },
-
   users(state) {
     return state.users
+  },
+  user(state) {
+    return state.user
   },
 }
 
@@ -29,10 +33,19 @@ export const actions = {
     console.log(res.data)
     commit('SET_USERS', res.data.hits)
   },
+
+  async fetchUser({ commit }, id) {
+    const res = await this.$dataApi.get('/users/'+id)
+    console.log(res.data)
+    commit('SET_USER', res.data)
+  },
 }
 
 export const mutations = {
   SET_USERS(state, data) {
     state.users = data
+  },
+  SET_USER(state, data) {
+    state.user = data
   },
 }

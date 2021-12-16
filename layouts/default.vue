@@ -78,31 +78,36 @@
         <template v-slot:activator="{ on }">
           <v-btn icon x-large v-on="on" class="mx-4">
             <v-avatar color="grey darken-1" size="48">
-              <!-- JD -->
               <img src="https://picsum.photos/1920/1080?random" alt="User" />
             </v-avatar>
           </v-btn>
         </template>
 
-        <v-card>
-          <v-list nav>
-            <v-list-item-content>
-              <div class="text-center">
-                <h3>John Doe</h3>
-                <p class="text-caption mt-1">john.doe@doe.com</p>
-                <v-divider class="my-3" />
+        <v-card width="145">
+          <v-list class="text-center" nav>
+            <v-list-item-title class="text-h6">
+              John Doe
+            </v-list-item-title>
+            
+            <v-list-item-subtitle class="text-caption">
+              john.doe@doe.com
+            </v-list-item-subtitle>
+            <v-divider class="mt-3" />
 
+            <v-list-item-content>
+              <div class="d-flex justify-center">
                 <v-switch
+                  inset
                   v-model="$vuetify.theme.dark"
                   :label="$vuetify.theme.dark ? 'Dark' : 'Light'"
                 />
-                <v-divider class="mb-3" />
-
-                <v-btn depressed rounded text> Editar </v-btn>
-                <v-divider class="my-3" />
-
-                <v-btn depressed rounded text> Sair </v-btn>
               </div>
+              <v-divider class="mb-3" />
+
+              <v-btn depressed rounded text> Editar </v-btn>
+              <v-divider class="my-3" />
+
+              <v-btn depressed rounded text> Sair </v-btn>
             </v-list-item-content>
           </v-list>
         </v-card>

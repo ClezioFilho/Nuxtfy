@@ -32,13 +32,19 @@
 
       <!-- eslint-disable-next-line -->
       <template v-slot:item.actions="{ item }">
-        <v-btn small nuxt :to="`${$route.name}/${item.id}/edit`">
+        <v-btn small nuxt :to="`${$route.name}/${item.objectID}`">
+          <v-icon small>
+            mdi-eye
+          </v-icon>
+        </v-btn>
+
+        <v-btn small nuxt :to="`${$route.name}/${item.objectID}/edit`">
           <v-icon small>
             mdi-pencil
           </v-icon>
         </v-btn>
 
-        <v-btn small nuxt :to="`${$route.name}/${item.id}/edit`">
+        <v-btn small>
           <v-icon small>
             mdi-delete
           </v-icon>
