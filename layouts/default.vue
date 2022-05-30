@@ -85,10 +85,8 @@
 
         <v-card width="145">
           <v-list class="text-center" nav>
-            <v-list-item-title class="text-h6">
-              John Doe
-            </v-list-item-title>
-            
+            <v-list-item-title class="text-h6"> John Doe </v-list-item-title>
+
             <v-list-item-subtitle class="text-caption">
               john.doe@doe.com
             </v-list-item-subtitle>
@@ -138,7 +136,10 @@ export default {
         {
           icon: "mdi-desktop-mac",
           title: "Sistema",
-          items: [{ title: "Usuários", to: "/users" }],
+          items: [
+            { title: "Usuários", to: "/users" },
+            { title: "Agenda", to: "/schedule" },
+          ],
         },
         {
           icon: "mdi-shopping",
